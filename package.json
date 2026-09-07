@@ -13,7 +13,8 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "lesson1": "node lessons/lesson1.js",
-    "lesson2": "node lessons/lesson2.js"
+    "lesson2": "node lessons/lesson2.js",
+    "lesson3": "node lessons/lesson3.js"
   },
   "dependencies": {
     "dotenv": "^17.4.2",
