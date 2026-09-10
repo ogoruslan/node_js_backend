@@ -1,0 +1,18 @@
+// Node.js 15+
+const { pipeline } = require('node:stream/promises');
+const fs = require('node:fs');
+const zlib = require('node:zlib');
+
+async function run() {
+  try {
+    await pipeline(
+      fs.createReadStream('input.txt'),
+      zlib.createGzip(),
+      fs.createWriteStream('input.txt.gz')
+    );
+    console.log('Успішно та безпечно архівовано!');
+  } catch (err) {
+    console.error('Сталася помилка при стрімінгу:', err);
+  }
+}
+run();
