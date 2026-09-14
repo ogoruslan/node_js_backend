@@ -14,7 +14,9 @@
     "dev": "nodemon src/server.js",
     "lesson1": "node lessons/lesson1-53.js",
     "lesson2": "node lessons/lesson2-54.js",
-    "lesson3": "node lessons/lesson3-55.js"
+    "lesson3": "node lessons/lesson3-55.js",
+    "lesson5": "node lessons/lesson5-57.js",
+    "lesson6": "node lessons/lesson6-58.js"
   },
   "dependencies": {
     "dotenv": "^17.4.2",
