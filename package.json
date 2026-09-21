@@ -12,6 +12,7 @@
   "main": "./src/server.js",
   "scripts": {
     "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
     "lesson1": "node lessons/lesson1-53.js",
     "lesson2": "node lessons/lesson2-54.js",
     "lesson3": "node lessons/lesson3-55.js",
@@ -22,6 +23,9 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "nodemon": "^3.1.14",
-    "socket.io": "^4.8.3"
+    "socket.io": "^4.8.3",
+    "swagger-jsdoc": "^6.3.0",
+    "swagger-ui-express": "^5.0.1",
+    "winston": "^3.19.0"
   }
 }
