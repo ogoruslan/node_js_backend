@@ -1,5 +1,5 @@
 const getUsers = (req, res) => {
-  res.type('json').send('{ "message": "Get users route" }');
+  res.json({ "message": "Get users route" });
 };
 
 const createUser = (req, res) => {
