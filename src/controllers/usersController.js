@@ -7,7 +7,6 @@ const createUser = (req, res) => {
 };
 
 const getUserById = (req, res) => {
-  console.log(req);
   res.type('json').send(`{ "message": "Get user by Id route", "userId": "${req.params.userId}" }`);
 };
 
