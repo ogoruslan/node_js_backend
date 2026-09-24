@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import articlesController from '../controllers/articlesController.js';
+import { validateArticleAccess } from '../middleware.js';
 
 const router = Router();
 
@@ -28,8 +29,8 @@ const router = Router();
  *       200:
  *         description: Article created
  */
-router.get('/', articlesController.getArticles);
-router.post('/', articlesController.createArticle);
+router.get('/', validateArticleAccess, articlesController.getArticles);
+router.post('/', validateArticleAccess, articlesController.createArticle);
 
 /**
  * @openapi
@@ -71,8 +72,8 @@ router.post('/', articlesController.createArticle);
  *       200:
  *         description: Article deleted
  */
-router.get('/:articleId', articlesController.getArticleById);
-router.put('/:articleId', articlesController.updateArticle);
-router.delete('/:articleId', articlesController.deleteArticle);
+router.get('/:articleId', validateArticleAccess, articlesController.getArticleById);
+router.put('/:articleId', validateArticleAccess, articlesController.updateArticle);
+router.delete('/:articleId', validateArticleAccess, articlesController.deleteArticle);
 
 export default router;

@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import usersController from '../controllers/usersController.js';
+import { requireAuth, validateUserInput } from '../middleware.js';
 
 const router = Router();
 
@@ -28,8 +29,8 @@ const router = Router();
  *       200:
  *         description: User created
  */
-router.get('/', usersController.getUsers);
-router.post('/', usersController.createUser);
+router.get('/', requireAuth, usersController.getUsers);
+router.post('/', requireAuth, validateUserInput, usersController.createUser);
 
 /**
  * @openapi
@@ -71,8 +72,8 @@ router.post('/', usersController.createUser);
  *       200:
  *         description: User deleted
  */
-router.get('/:userId', usersController.getUserById);
-router.put('/:userId', usersController.updateUser);
-router.delete('/:userId', usersController.deleteUser);
+router.get('/:userId', requireAuth, usersController.getUserById);
+router.put('/:userId', requireAuth, validateUserInput, usersController.updateUser);
+router.delete('/:userId', requireAuth, usersController.deleteUser);
 
 export default router;
