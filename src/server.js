@@ -1,3 +1,5 @@
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import express from 'express';
 import articleRoutes from './routes/articles.js';
 import rootController from './controllers/rootController.js';
@@ -25,6 +27,16 @@ app.get('/', rootController.getRoot);
 app.use('/articles', validateArticleAccess, articleRoutes);
 app.use('/users', validateUserInput);
 app.use(errorHandler);
+
+// Налаштування EJS як движка шаблонів
+app.set('view engine', 'ejs');
+app.set('views', resolve(dirname(fileURLToPath(import.meta.url)), 'views'));
+
+// Маршрут для головної сторінки
+app.get('/ejs', (req, res) => {
+  const data = { title: 'Cторінка шаблону', message: 'Привіт, світе!' };
+  res.render('ejs', data);
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
