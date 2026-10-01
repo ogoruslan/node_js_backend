@@ -13,6 +13,7 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
+    "start:debug": "set DEBUG=myapp:server&& node src/server.js",
     "lesson1": "node lessons/lesson1-53.js",
     "lesson2": "node lessons/lesson2-54.js",
     "lesson3": "node lessons/lesson3-55.js",
@@ -20,6 +21,7 @@
     "lesson6": "node lessons/lesson6-58.js"
   },
   "dependencies": {
+    "debug": "^4.4.3",
     "dotenv": "^17.4.2",
     "ejs": "^6.0.1",
     "express": "^5.2.1",

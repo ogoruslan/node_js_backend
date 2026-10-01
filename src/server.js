@@ -1,5 +1,6 @@
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import createDebug from 'debug';
 import express from 'express';
 import articleRoutes from './routes/articles.js';
 import rootController from './controllers/rootController.js';
@@ -14,6 +15,7 @@ import {
   validateUserInput
 } from './middleware.js';
 
+const debug = createDebug('myapp:server');
 const app = express();
 const port = 3000;
 
@@ -39,6 +41,6 @@ app.get('/ejs', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-  console.log(`Swagger docs available at http://localhost:${port}/api-docs`);
+  debug(`Server is running on port ${port}`);
+  debug(`Swagger docs available at http://localhost:${port}/api-docs`);
 });
